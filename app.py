@@ -26,6 +26,9 @@ def init_db():
 # Chamamos a função para inicializar o banco de dados quando o programa for executado
 init_db()
 
+@app.route("/")
+def index():
+    return "API para doação de livros!"
 
 @app.route("/doar", methods=["POST"])
 def doar():
