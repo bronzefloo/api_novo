@@ -32,8 +32,6 @@ pip install -r requirements.txt
 python app.py
 ```
 
-> A API estará disponível em http://127.0.0.1:5000/
-
 ## Endpoints
 
 ### POST /doar
