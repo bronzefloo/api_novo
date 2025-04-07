@@ -1,6 +1,6 @@
 # Api Livros Doados VnW
 
-Essa é uma API simples feita com Flask e SQLite para fins de estudo na escola Vai na Web, ela permite cadastrar e listr os livros doados. 
+Essa é uma API simples feita com Flask e SQLite para fins de estudo na escola Vai na Web, ela permite cadastrar e listar os livros doados. 
 
 ## Como rodar o projeto?
 
@@ -49,10 +49,67 @@ Endpoint para cadastro das informações do livro doado.
 **Envio (JSON)**
 ```json
 {
-    "titulo":"Ainda estou devendo aqui",
-    "categoria":"Drama/Finanças",
-    "autor":"Fernando Polia",
-    "image_url":"https://exemplo.com"
+    "titulo":"Harry Potter e o enigma do príncipe",
+    "categoria":"Fantasia",
+    "autor":"J.K Rowling",
+    "image_url":"https://..."
+}
+```
+### Resposta (JSON)
+Caso o livro seja cadastrado com sucesso, a API retornará uma resposta com os dados do livro:
+```json
+{
+    "id": 1,
+    "titulo": "Harry Potter e o enigma do príncipe",
+    "categoria": "Fantasia",
+    "autor": "J.K. Rowling",
+    "image_url": "https://..."
 }
 ```
 
+### ERRO
+Se ocorrer um erro na requisição, a API retornará uma mensagem de erro com o código de status.
+```json
+{
+    "Erro": "Os campos 'titulo', 'categoria', 'autor' e 'image_url' são obrigatórios!"
+}
+```
+
+### GET / livros
+Este endpoint permite listar todos os livros cadastrados.
+
+### Resposta (JSON)
+A resposta será uma lista de livros registrados:
+
+```json
+[
+    {
+        "id": 1,
+        "titulo": "Harry Potter e o enigma do príncipe",
+        "categoria": "Fantasia",
+        "autor": "J.K. Rowling",
+        "image_url": "https://..."
+    },
+    {
+        "id": 2,
+        "titulo": "O Senhor dos Anéis",
+        "categoria": "Fantasia",
+        "autor": "J.R.R. Tolkien",
+        "image_url": "https://..."
+    }
+]
+```
+### Como o banco de dados funciona
+O banco de dados utilizado é o SQLite, e os dados são armazenados em um arquivo chamado database.db 
+
+A tabela LIVROS armazena as seguintes informações de cada livro:
+
+- id: Identificador único do livro (chave primária).
+
+- titulo: Título do livro.
+
+- categoria: Categoria ou gênero do livro.
+
+- autor: Nome do autor do livro.
+
+- image_url: URL da imagem da capa do livro.
